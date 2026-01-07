@@ -1,0 +1,103 @@
+{
+  "version": "v1.0",
+  "as_of_date": "2026-01-06",
+  "schema": {
+    "vector_id": "string",
+    "name": "string",
+    "description": "string",
+    "trigger_signals": [
+      "string"
+    ],
+    "statute_refs": [
+      "AUTH-*"
+    ],
+    "consequence_class": "FAIL|CONDITIONAL|DISCLOSE",
+    "replacement_pattern_ids": [
+      "string"
+    ]
+  },
+  "vectors": [
+    {
+      "vector_id": "CV-COUNTERPARTY-FOREIGN-PFE",
+      "name": "Foreign / potential PFE counterparty",
+      "description": "Counterparty is foreign-organized or could qualify as a prohibited foreign entity; requires reps/covenants and termination rights.",
+      "trigger_signals": [
+        "counterparty organized under non-U.S. law",
+        "no disclosure of ownership/control chain",
+        "broad affiliate/subcontractor performance rights"
+      ],
+      "statute_refs": [
+        "AUTH-26-7701A",
+        "AUTH-15-4651-8"
+      ],
+      "consequence_class": "CONDITIONAL",
+      "replacement_pattern_ids": [
+        "RP-FEOC-REP-COV",
+        "RP-DISCLOSURE-APPROVAL",
+        "RP-TERMINATION-PFE"
+      ]
+    },
+    {
+      "vector_id": "CV-MATERIAL-ASSISTANCE-SUPPLYCHAIN",
+      "name": "Material assistance / supply-chain dependence",
+      "description": "Contract structure allows or requires sourcing, services, IP, or data flows that could be treated as 'material assistance' from a prohibited foreign entity (depending on statutory tests and guidance).",
+      "trigger_signals": [
+        "operator sole discretion sourcing from global supply chain",
+        "proprietary software/firmware controlled by operator",
+        "data hosted outside U.S.; owner lacks raw access"
+      ],
+      "statute_refs": [
+        "AUTH-26-45Y",
+        "AUTH-26-48E",
+        "AUTH-26-45X",
+        "AUTH-26-7701A"
+      ],
+      "consequence_class": "FAIL",
+      "replacement_pattern_ids": [
+        "RP-US-HOSTING-ESCROW",
+        "RP-SUPPLYCHAIN-COVENANT",
+        "RP-AUDIT-RIGHTS"
+      ]
+    },
+    {
+      "vector_id": "CV-OPERATIONAL-CONTROL-STEPIN",
+      "name": "Operational control + weak step-in",
+      "description": "Operator retains day-to-day dispatch/configuration control; owner cannot step in effectively (especially due to IP restrictions).",
+      "trigger_signals": [
+        "operator has primary operational authority",
+        "remote monitoring/control retained by operator",
+        "step-in limited to insolvency; no IP license"
+      ],
+      "statute_refs": [
+        "AUTH-26-45Y",
+        "AUTH-26-48E"
+      ],
+      "consequence_class": "FAIL",
+      "replacement_pattern_ids": [
+        "RP-STEPIN-IP-LICENSE",
+        "RP-OWNER-CONTROL-OVERRIDE"
+      ]
+    },
+    {
+      "vector_id": "CV-DATA-SOVEREIGNTY",
+      "name": "Data sovereignty and auditability failure",
+      "description": "Operator owns operational data and can store offshore; owner lacks raw access\u2014undermines diligence and compliance proofs.",
+      "trigger_signals": [
+        "operator owns all operational data",
+        "offshore storage permitted",
+        "owner has reports only; no raw access"
+      ],
+      "statute_refs": [
+        "AUTH-DOE-FEOC-2024-GUIDANCE",
+        "AUTH-26-45Y",
+        "AUTH-26-48E"
+      ],
+      "consequence_class": "CONDITIONAL",
+      "replacement_pattern_ids": [
+        "RP-OWNER-DATA-OWNERSHIP",
+        "RP-US-DATA-HOSTING",
+        "RP-AUDIT-RIGHTS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "frozen": true,
+  "file": "clause_skeletons.v1.0.json",
+  "patterns": [
+    {
+      "replacement_pattern_id": "FEOC_ABSOLUTE_PROHIBITION",
+      "short_form": "Counterparty represents and warrants that it is not, and covenants that it shall not become, a Foreign Entity of Concern, and that no Foreign Entity of Concern shall directly or indirectly own, control, or provide material assistance with respect to the [PROJECT/SERVICES] during the Term.",
+      "long_form": "(a) FEOC Representation. Counterparty represents and warrants that neither it nor any of its Affiliates is a Foreign Entity of Concern.\n\n(b) FEOC Covenant. Counterparty covenants that, at all times during the Term, no Foreign Entity of Concern shall, directly or indirectly, (i) own any equity or voting interest, (ii) exercise control or negative control, or (iii) provide material assistance with respect to the Project or the Services.\n\n(c) Condition Precedent and Termination. Compliance with this Section is a condition precedent to any credit election or transfer. Any breach shall constitute an immediate, non-curable Event of Default.",
+      "placeholders": [
+        "PROJECT",
+        "SERVICES",
+        "TERM"
+      ]
+    },
+    {
+      "replacement_pattern_id": "SUPPLY_CHAIN_FEOC_EXCLUSION",
+      "short_form": "No materials, components, or subcomponents supplied under this Agreement shall be sourced from or manufactured by a Foreign Entity of Concern.",
+      "long_form": "(a) Supply Chain Representation. Counterparty represents that no materials, components, or subcomponents incorporated into the Deliverables are sourced from or manufactured by a Foreign Entity of Concern.\n\n(b) Ongoing Monitoring. Counterparty shall continuously monitor its supply chain for FEOC exposure and promptly disclose any non-compliance.\n\n(c) Replacement Obligation. Any non-compliant materials shall be replaced at Counterparty’s sole cost within the required timeframe.",
+      "placeholders": [
+        "DELIVERABLES",
+        "DISCLOSURE_PERIOD"
+      ]
+    },
+    {
+      "replacement_pattern_id": "OPERATIONAL_INDEPENDENCE_FIREWALL",
+      "short_form": "Counterparty shall maintain full operational independence from any Foreign Entity of Concern.",
+      "long_form": "Counterparty covenants that no Foreign Entity of Concern shall have any management rights, approval rights, veto rights, or other direct or indirect influence over the operation, management, or financing of the Project or Services. Any breach shall constitute a material default.",
+      "placeholders": [
+        "PROJECT",
+        "SERVICES"
+      ]
+    },
+    {
+      "replacement_pattern_id": "CHANGE_OF_CONTROL_FEOC_LOCKOUT",
+      "short_form": "Any change of control resulting in FEOC involvement shall result in immediate termination.",
+      "long_form": "Counterparty shall provide prompt written notice of any change of control. Any change of control that results in ownership, control, or material assistance by a Foreign Entity of Concern shall result in automatic and immediate termination of this Agreement, without cure or grandfathering.",
+      "placeholders": []
+    },
+    {
+      "replacement_pattern_id": "AFFIRMATIVE_FEOC_REP_SURVIVAL",
+      "short_form": "Counterparty makes an unqualified representation that it is not a Foreign Entity of Concern.",
+      "long_form": "Counterparty represents and warrants, without qualification, that it is not a Foreign Entity of Concern. This representation shall survive termination or expiration of this Agreement through the applicable statute of limitations for all relevant tax matters.",
+      "placeholders": []
+    },
+    {
+      "replacement_pattern_id": "FEOC_AUDIT_AND_INFORMATION_RIGHTS",
+      "short_form": "Counterparty shall provide information sufficient to substantiate FEOC compliance upon request.",
+      "long_form": "Upon reasonable request, Counterparty shall provide certifications, ownership charts, supply-chain documentation, and other information sufficient to substantiate compliance with FEOC-related requirements, including cooperation during any governmental audit or inquiry.",
+      "placeholders": []
+    },
+    {
+      "replacement_pattern_id": "FEOC_TAX_INDEMNITY",
+      "short_form": "Counterparty shall indemnify Sponsor for any FEOC-related credit loss.",
+      "long_form": "Counterparty shall indemnify and hold harmless Sponsor from and against any losses, including disallowed credits, recapture, penalties, interest, and gross-up amounts, arising from any breach of FEOC-related representations or covenants. This indemnity shall not be subject to any cap or limitation of liability.",
+      "placeholders": [
+        "SPONSOR"
+      ]
+    },
+    {
+      "replacement_pattern_id": "IMMEDIATE_TERMINATION_AND_TRANSITION",
+      "short_form": "FEOC discovery permits immediate termination without cure.",
+      "long_form": "Upon discovery of any FEOC involvement, Sponsor may immediately terminate this Agreement without cure. Counterparty shall provide reasonable transition assistance to preserve credit eligibility and continuity of operations.",
+      "placeholders": []
+    },
+    {
+      "replacement_pattern_id": "RETROACTIVE_DISCLOSURE_AND_CLAWBACK",
+      "short_form": "Counterparty shall bear responsibility for retroactive FEOC-related credit recapture.",
+      "long_form": "Counterparty shall promptly disclose any historical FEOC involvement, regardless of knowledge. Counterparty shall bear full responsibility for any resulting credit recapture, clawback, or transfer indemnity claims relating to any prior period.",
+      "placeholders": []
+    },
+    {
+      "replacement_pattern_id": "NON_CURABLE_FEOC_BREACH",
+      "short_form": "Any FEOC-related breach is non-curable.",
+      "long_form": "The Parties acknowledge that any breach of FEOC-related representations, covenants, or obligations constitutes a material, non-curable breach. No cure period, waiver, estoppel, or mitigation doctrine shall apply.",
+      "placeholders": []
+    }
+  ]
+}

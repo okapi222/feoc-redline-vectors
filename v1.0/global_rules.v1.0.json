@@ -1,0 +1,125 @@
+{
+  "version": "1.0",
+  "frozen": true,
+  "file": "global_rules.v1.0.json",
+  "immutability": {
+    "frozen_artifacts": [
+      "controls.v1.0.json",
+      "consequence_map.v1.0.json",
+      "replacement_map.v1.0.json",
+      "clause_skeletons.v1.0.json",
+      "global_rules.v1.0.json"
+    ],
+    "change_policy": {
+      "no_in_place_edits": true,
+      "version_bump_required": true,
+      "allowed_next_versions": [
+        "1.1",
+        "2.0"
+      ],
+      "id_stability_required": true
+    }
+  },
+  "decision_rules": {
+    "no_scoring": true,
+    "no_aggregation": true,
+    "no_mitigation_offsets": true,
+    "deterministic_only": true,
+    "one_control_maps_to_one_output_class": true,
+    "ui_must_display_output_class": true,
+    "ui_must_not_display_raw_statute_text": true
+  },
+  "severity_policy": [
+    {
+      "severity": "FATAL",
+      "hard_stop_required": true,
+      "ui_behavior": {
+        "banner": "HARD_STOP",
+        "user_action": "REPLACE_REQUIRED",
+        "allow_override": false
+      }
+    },
+    {
+      "severity": "HIGH",
+      "hard_stop_required": false,
+      "ui_behavior": {
+        "banner": "RED_FLAG",
+        "user_action": "REPLACE_RECOMMENDED",
+        "allow_override": true,
+        "override_requires_note": true
+      }
+    },
+    {
+      "severity": "MEDIUM",
+      "hard_stop_required": false,
+      "ui_behavior": {
+        "banner": "WARNING",
+        "user_action": "REVIEW_RECOMMENDED",
+        "allow_override": true,
+        "override_requires_note": false
+      }
+    }
+  ],
+  "replacement_behavior": {
+    "replacement_is_pattern_based": true,
+    "replacement_is_mandatory_when": [
+      "FATAL",
+      "HIGH"
+    ],
+    "replacement_is_optional_when": [
+      "MEDIUM"
+    ],
+    "termination_required_enforced": true
+  },
+  "drafting_constraints": {
+    "prohibit_knowledge_qualifiers": true,
+    "prohibit_materiality_qualifiers": true,
+    "prohibit_commercially_reasonable": true,
+    "prohibit_best_efforts": true,
+    "prohibit_optional_brackets": true,
+    "prohibit_multiple_alternative_clauses": true
+  },
+  "definitions_policy": {
+    "terms_must_be_consistent": [
+      "Foreign Entity of Concern",
+      "Affiliate",
+      "control",
+      "negative control",
+      "material assistance"
+    ],
+    "definition_source_priority": [
+      "applicable tax statute and guidance",
+      "agreement definitions section",
+      "common law"
+    ]
+  },
+  "logging_and_audit": {
+    "must_log": [
+      "control_hits",
+      "mapped_output_classes",
+      "replacement_pattern_ids",
+      "user_overrides",
+      "override_notes"
+    ],
+    "must_produce_export": [
+      "json",
+      "pdf_summary_optional"
+    ]
+  },
+  "ui_contract": {
+    "required_user_views": [
+      "controls_hit_list",
+      "output_class_summary",
+      "replacement_clause_preview_short_form",
+      "replacement_clause_preview_long_form"
+    ],
+    "required_actions": [
+      "accept_replacement",
+      "copy_clause",
+      "override_with_note"
+    ],
+    "prohibited_actions": [
+      "edit_frozen_artifacts_in_ui"
+    ]
+  }
+}

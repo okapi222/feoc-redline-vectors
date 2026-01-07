@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "frozen": true,
+  "file": "consequence_map.v1.0.json",
+  "rules": [
+    {
+      "control_id": "FEOC_ENTITY_STATUS",
+      "output_class": "CREDIT_DISQUALIFICATION",
+      "severity": "FATAL",
+      "hard_stop": true
+    },
+    {
+      "control_id": "FEOC_MATERIAL_ASSISTANCE",
+      "output_class": "CREDIT_DISQUALIFICATION",
+      "severity": "FATAL",
+      "hard_stop": true
+    },
+    {
+      "control_id": "FEOC_SUPPLY_CHAIN_CONTENT",
+      "output_class": "CREDIT_AT_RISK",
+      "severity": "HIGH",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_OM_PROVIDER",
+      "output_class": "STRUCTURAL_RISK",
+      "severity": "HIGH",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_CHANGE_OF_CONTROL_SILENT",
+      "output_class": "FUTURE_EXPOSURE",
+      "severity": "MEDIUM",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_REPRESENTATION_MISSING",
+      "output_class": "REMEDY_GAP",
+      "severity": "MEDIUM",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_AUDIT_RIGHTS_MISSING",
+      "output_class": "PROOF_FAILURE",
+      "severity": "MEDIUM",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_INDEMNITY_EXCLUDED",
+      "output_class": "ECONOMIC_LOSS",
+      "severity": "HIGH",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_TERMINATION_MISSING",
+      "output_class": "LOCKED_IN_RISK",
+      "severity": "HIGH",
+      "hard_stop": false
+    },
+    {
+      "control_id": "FEOC_CURABLE_BREACH",
+      "output_class": "FALSE_COMPLIANCE",
+      "severity": "HIGH",
+      "hard_stop": false
+    }
+  ]
+}

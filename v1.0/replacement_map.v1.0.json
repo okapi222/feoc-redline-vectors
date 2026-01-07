@@ -1,0 +1,115 @@
+{
+  "version": "1.0",
+  "frozen": true,
+  "file": "replacement_map.v1.0.json",
+  "mappings": [
+    {
+      "output_class": "CREDIT_DISQUALIFICATION",
+      "replacement_pattern_id": "FEOC_ABSOLUTE_PROHIBITION",
+      "required_elements": [
+        "affirmative_feoc_rep",
+        "no_feoc_covenant",
+        "condition_precedent_to_credit_election_or_transfer",
+        "immediate_termination_no_cure"
+      ],
+      "termination_required": true
+    },
+    {
+      "output_class": "CREDIT_AT_RISK",
+      "replacement_pattern_id": "SUPPLY_CHAIN_FEOC_EXCLUSION",
+      "required_elements": [
+        "supply_chain_feoc_rep",
+        "ongoing_traceability_covenant",
+        "flow_down_to_suppliers",
+        "replacement_at_counterparty_cost"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "STRUCTURAL_RISK",
+      "replacement_pattern_id": "OPERATIONAL_INDEPENDENCE_FIREWALL",
+      "required_elements": [
+        "operational_independence_covenant",
+        "ban_negative_control_reserved_rights",
+        "step_in_rights"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "FUTURE_EXPOSURE",
+      "replacement_pattern_id": "CHANGE_OF_CONTROL_FEOC_LOCKOUT",
+      "required_elements": [
+        "change_of_control_notice",
+        "feoc_change_of_control_termination",
+        "no_grandfathering",
+        "no_cure"
+      ],
+      "termination_required": true
+    },
+    {
+      "output_class": "REMEDY_GAP",
+      "replacement_pattern_id": "AFFIRMATIVE_FEOC_REP_SURVIVAL",
+      "required_elements": [
+        "standalone_feoc_rep",
+        "no_knowledge_qualifier",
+        "no_materiality_qualifier",
+        "survival_through_tax_statute_of_limitations"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "PROOF_FAILURE",
+      "replacement_pattern_id": "FEOC_AUDIT_AND_INFORMATION_RIGHTS",
+      "required_elements": [
+        "audit_rights_feoc_specific",
+        "certifications_and_ownership_charts",
+        "cooperation_in_audit",
+        "prompt_response_deadlines"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "ECONOMIC_LOSS",
+      "replacement_pattern_id": "FEOC_TAX_INDEMNITY",
+      "required_elements": [
+        "credit_disallowance_indemnity",
+        "recapture_and_clawback_covered",
+        "penalties_interest_gross_up",
+        "no_cap_no_lol_limitations"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "LOCKED_IN_RISK",
+      "replacement_pattern_id": "IMMEDIATE_TERMINATION_AND_TRANSITION",
+      "required_elements": [
+        "immediate_termination_on_feoc_discovery",
+        "no_cure",
+        "transition_assistance",
+        "preserve_credit_eligibility"
+      ],
+      "termination_required": true
+    },
+    {
+      "output_class": "RETROACTIVE_FAILURE",
+      "replacement_pattern_id": "RETROACTIVE_DISCLOSURE_AND_CLAWBACK",
+      "required_elements": [
+        "historical_disclosure_obligation",
+        "allocation_of_recapture_liability",
+        "survival_post_closing",
+        "regardless_of_knowledge"
+      ],
+      "termination_required": false
+    },
+    {
+      "output_class": "FALSE_COMPLIANCE",
+      "replacement_pattern_id": "NON_CURABLE_FEOC_BREACH",
+      "required_elements": [
+        "explicit_non_curable_acknowledgment",
+        "waiver_of_cure_estoppel_arguments",
+        "feoc_is_material_inducement"
+      ],
+      "termination_required": false
+    }
+  ]
+}
