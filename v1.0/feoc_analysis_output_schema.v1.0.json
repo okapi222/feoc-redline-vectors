@@ -211,12 +211,25 @@
       },
       "description": "Resolved from v1.0/feoc_statute_citations_v1.0.json; do not invent authorities."
     },
-    "snippet": {
+"snippet": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text"],
+  "properties": {
+    "text": { "type": "string", "minLength": 1 },
+    "location": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "text"
-      ],
+      "properties": {
+        "section": { "type": "string" },
+        "clause": { "type": "string" },
+        "page": { "type": "integer", "minimum": 0 },
+        "paragraph_index": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+},
+
       "properties": {
         "text": {
           "type": "string"
@@ -256,13 +269,15 @@
           "type": "string"
         },
         "clause": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "clause_id",
-            "heading",
-            "snippet"
-          ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["clause_id", "heading", "snippet"],
+  "properties": {
+    "clause_id": { "type": "string" },
+    "heading": { "type": "string" },
+    "snippet": { "$ref": "#/$defs/snippet" }
+  }
+},
           "properties": {
             "clause_id": {
               "type": "string"
@@ -287,25 +302,16 @@
             "AUTHORITIES"
           ],
           "properties": {
-            "VECTOR": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "vector_id"
-              ],
-              "properties": {
-                "vector_id": {
-                  "type": "string",
-                  "pattern": "^[A-Za-z0-9\\-_.]+$"
-                },
-                "vector_name": {
-                  "type": "string"
-                },
-                "rationale": {
-                  "type": "string"
-                }
-              }
-            },
+      "VECTOR": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vector_id", "rationale"],
+  "properties": {
+    "vector_id": { "type": "string" },
+    "vector_name": { "type": "string" },
+    "rationale": { "type": "string", "minLength": 1 }
+  }
+},
             "CONSEQUENCE": {
               "type": "object",
               "additionalProperties": false,
