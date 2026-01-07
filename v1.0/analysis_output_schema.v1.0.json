@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "feoc_analysis_output_schema.v1.0",
+  "title": "FEOC Contract Analysis Output Schema (v1.0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_url",
+    "document",
+    "summary",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "v1.0"
+    },
+    "manifest_url": {
+      "type": "string",
+      "description": "Raw URL to v1.0/manifest.v1.0.json used for this run."
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "created_at_utc"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "engine": {
+          "type": "string",
+          "description": "Analyzer implementation identifier (optional)."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_name"
+      ],
+      "properties": {
+        "source_name": {
+          "type": "string"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "docx",
+            "pdf",
+            "text",
+            "unknown"
+          ]
+        },
+        "source_hash": {
+          "type": "string",
+          "description": "Optional content hash of source document."
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overall_severity",
+        "hard_stop_required",
+        "ui_behavior",
+        "counts"
+      ],
+      "properties": {
+        "overall_severity": {
+          "type": "string",
+          "description": "Computed per v1.0/feoc_global_rules.v1.0.json severity_policy."
+        },
+        "hard_stop_required": {
+          "type": "boolean"
+        },
+        "ui_behavior": {
+          "$ref": "#/$defs/ui_behavior"
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "findings_total",
+            "fatal",
+            "high",
+            "medium",
+            "low",
+            "info"
+          ],
+          "properties": {
+            "findings_total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fatal": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "high": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "medium": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "low": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "info": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "ui_behavior": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "banner",
+        "user_action",
+        "allow_override"
+      ],
+      "properties": {
+        "banner": {
+          "type": "string"
+        },
+        "user_action": {
+          "type": "string"
+        },
+        "allow_override": {
+          "type": "boolean"
+        },
+        "override_requires_note": {
+          "type": "boolean"
+        }
+      },
+      "description": "Must match the ui_behavior for the computed severity in v1.0/feoc_global_rules.v1.0.json severity_policy."
+    },
+    "severity_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_file",
+        "source_path"
+      ],
+      "properties": {
+        "source_file": {
+          "type": "string",
+          "const": "v1.0/feoc_global_rules.v1.0.json"
+        },
+        "source_path": {
+          "type": "string",
+          "description": "Path to the matched severity_policy entry, e.g., 'severity_policy[0]'."
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auth_id",
+        "citation",
+        "url"
+      ],
+      "properties": {
+        "auth_id": {
+          "type": "string",
+          "pattern": "^AUTH-[A-Za-z0-9\\-_.]+$"
+        },
+        "citation": {
+          "type": "string"
+        },
+        "pinpoint": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "description": "Resolved from v1.0/feoc_statute_citations_v1.0.json; do not invent authorities."
+    },
+    "snippet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "section": {
+              "type": "string"
+            },
+            "clause": {
+              "type": "string"
+            },
+            "page": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "paragraph_index": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_id",
+        "clause",
+        "analysis"
+      ],
+      "properties": {
+        "finding_id": {
+          "type": "string"
+        },
+        "clause": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "clause_id",
+            "heading",
+            "snippet"
+          ],
+          "properties": {
+            "clause_id": {
+              "type": "string"
+            },
+            "heading": {
+              "type": "string"
+            },
+            "snippet": {
+              "$ref": "#/$defs/snippet"
+            }
+          }
+        },
+        "analysis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "VECTOR",
+            "CONSEQUENCE",
+            "REPLACEMENT",
+            "SEVERITY",
+            "SEVERITY_SOURCE",
+            "AUTHORITIES"
+          ],
+          "properties": {
+            "VECTOR": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vector_id"
+              ],
+              "properties": {
+                "vector_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "vector_name": {
+                  "type": "string"
+                },
+                "rationale": {
+                  "type": "string"
+                }
+              }
+            },
+            "CONSEQUENCE": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "consequence_id"
+              ],
+              "properties": {
+                "consequence_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              }
+            },
+            "REPLACEMENT": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "replacement_ids"
+              ],
+              "properties": {
+                "replacement_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9\\-_.]+$"
+                  }
+                },
+                "clause_skeleton_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9\\-_.]+$"
+                  }
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            },
+            "SEVERITY": {
+              "type": "string"
+            },
+            "SEVERITY_SOURCE": {
+              "$ref": "#/$defs/severity_source"
+            },
+            "AUTHORITIES": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/authority"
+              }
+            },
+            "UI_BEHAVIOR": {
+              "$ref": "#/$defs/ui_behavior"
+            }
+          }
+        }
+      }
+    }
+  }
+}
