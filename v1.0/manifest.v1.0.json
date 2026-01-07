@@ -1,0 +1,18 @@
+{
+  "version": "v1.0",
+  "frozen": true,
+  "commit": "e9af777dd47f233f8f45dd2d7f392022754eaf97",
+  "repo": "https://github.com/okapi222/feoc-redline-vectors",
+  "base_raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/e9af777dd47f233f8f45dd2d7f392022754eaf97/v1.0/",
+  "files": [
+    {
+      "name": "feoc_clause_skeletons.v1.0.json",
+      "role": "Clause skeleton library (short-form and long-form replacement clause templates)",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/e9af777dd47f233f8f45dd2d7f392022754eaf97/v1.0/feoc_clause_skeletons.v1.0.json"
+    },
+    {
+      "name": "feoc_consequence_map.v1.0.json",
+      "role": "Maps control-vector hits to outcome classes, UI states, and required actions",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/e9af777dd47f233f8f45dd2d7f392022754eaf97/v1.0/feoc_consequence_map.v1.0.json"
+    },
+    {
