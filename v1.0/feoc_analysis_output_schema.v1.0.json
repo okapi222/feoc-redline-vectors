@@ -16,10 +16,6 @@
       "type": "string",
       "const": "v1.0"
     },
-    "schema_revision": {
-      "type": "string",
-      "description": "Optional revision marker within v1.0 (e.g., '2026-01-07-authorities')."
-    },
     "manifest_url": {
       "type": "string",
       "description": "Raw URL to v1.0/manifest.v1.0.json used for this run."
@@ -190,36 +186,14 @@
         }
       }
     },
-    "authority_source": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "source_file",
-        "source_path"
-      ],
-      "properties": {
-        "source_file": {
-          "type": "string",
-          "enum": [
-            "v1.0/feoc_control_vectors_refactored.v1.0.json",
-            "v1.0/feoc_consequence_map.v1.0.json",
-            "v1.0/feoc_statute_citations_v1.0.json"
-          ]
-        },
-        "source_path": {
-          "type": "string",
-          "description": "Pointer/path indicating where the authority was referenced (e.g., 'vectors[3].statute_refs[0]' or 'consequences[5].statute_refs[1]')."
-        }
-      }
-    },
     "authority": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "auth_id",
         "citation",
-        "url",
-        "authority_source"
+        "canonical_source",
+        "canonical_url"
       ],
       "properties": {
         "auth_id": {
@@ -232,14 +206,21 @@
         "pinpoint": {
           "type": "string"
         },
-        "url": {
+        "canonical_source": {
           "type": "string"
         },
-        "authority_source": {
-          "$ref": "#/$defs/authority_source"
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "alternate_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
         }
-      },
-      "description": "Must be resolved from v1.0/feoc_statute_citations_v1.0.json and include provenance back to the vector or consequence reference."
+      }
     },
     "snippet": {
       "type": "object",
@@ -249,8 +230,7 @@
       ],
       "properties": {
         "text": {
-          "type": "string",
-          "minLength": 1
+          "type": "string"
         },
         "location": {
           "type": "object",
@@ -314,16 +294,15 @@
             "CONSEQUENCE",
             "REPLACEMENT",
             "SEVERITY",
-            "SEVERITY_SOURCE"
+            "SEVERITY_SOURCE",
+            "AUTHORITIES"
           ],
           "properties": {
             "VECTOR": {
               "type": "object",
               "additionalProperties": false,
               "required": [
-                "vector_id",
-                "rationale",
-                "authorities"
+                "vector_id"
               ],
               "properties": {
                 "vector_id": {
@@ -334,15 +313,7 @@
                   "type": "string"
                 },
                 "rationale": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "authorities": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "$ref": "#/$defs/authority"
-                  }
+                  "type": "string"
                 }
               }
             },
@@ -350,8 +321,7 @@
               "type": "object",
               "additionalProperties": false,
               "required": [
-                "consequence_id",
-                "authorities"
+                "consequence_id"
               ],
               "properties": {
                 "consequence_id": {
@@ -360,13 +330,6 @@
                 },
                 "summary": {
                   "type": "string"
-                },
-                "authorities": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "$ref": "#/$defs/authority"
-                  }
                 }
               }
             },
@@ -403,23 +366,15 @@
             "SEVERITY_SOURCE": {
               "$ref": "#/$defs/severity_source"
             },
+            "AUTHORITIES": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/authority"
+              }
+            },
             "UI_BEHAVIOR": {
               "$ref": "#/$defs/ui_behavior"
-            },
-            "override": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "allowed": {
-                  "type": "boolean"
-                },
-                "requires_note": {
-                  "type": "boolean"
-                },
-                "user_note": {
-                  "type": "string"
-                }
-              }
             }
           }
         }
