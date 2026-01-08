@@ -1,1 +1,43 @@
-{"version":"v1.0","frozen":true,"repo":"https://github.com/okapi222/feoc-redline-vectors","notes":"This manifest is the single authoritative entry point for all frozen v1.0 FEOC inputs. All analysis must reference only the files listed here.","files":[{"name":"feoc_clause_skeletons.v1.0.json","role":"Clause skeleton library containing short-form and long-form replacement clause templates","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_clause_skeletons.v1.0.json"},{"name":"feoc_consequence_map.v1.0.json","role":"Maps control-vector hits to consequence classes, UI states, and required actions","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_consequence_map.v1.0.json"},{"name":"feoc_control_vectors_refactored.v1.0.json","role":"Authoritative FEOC control vectors with triggers, consequence classes, and statute references","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_control_vectors_refactored.v1.0.json"},{"name":"feoc_global_rules.v1.0.json","role":"Global precedence, override, and fatality rules applied across all analyses","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_global_rules.v1.0.json"},{"name":"feoc_replacement_map.v1.0.json","role":"Maps consequence outputs to replacement clause skeleton IDs","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_replacement_map.v1.0.json"},{"name":"feoc_statute_citations_v1.0.json","role":"Single source of truth for FEOC statutes, regulations, guidance, and canonical URLs","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_statute_citations_v1.0.json"},{"name":"feoc_analysis_output_schema.v1.0.json","role":"Describes expected analysis output","raw_url":"https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_analysis_output_schema.v1.0.json"}]}
+{
+  "version": "v1.0",
+  "frozen": true,
+  "repo": "https://github.com/okapi222/feoc-redline-vectors",
+  "notes": "This manifest is the single authoritative entry point for all frozen v1.0 FEOC inputs. All analysis must reference only the files listed here.",
+  "files": [
+    {
+      "name": "feoc_clause_skeletons.v1.0.json",
+      "role": "Clause skeleton library containing short-form and long-form replacement clause templates",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_clause_skeletons.v1.0.json"
+    },
+    {
+      "name": "feoc_consequence_map.v1.0.json",
+      "role": "Maps control-vector hits to consequence classes, UI states, and required actions",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_consequence_map.v1.0.json"
+    },
+    {
+      "name": "feoc_control_vectors_refactored.v1.0.json",
+      "role": "Authoritative FEOC control vectors with triggers, consequence classes, and statute references",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_control_vectors_refactored.v1.0.json"
+    },
+    {
+      "name": "feoc_global_rules.v1.0.json",
+      "role": "Global precedence, override, and fatality rules applied across all analyses",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_global_rules.v1.0.json"
+    },
+    {
+      "name": "feoc_replacement_map.v1.0.json",
+      "role": "Maps consequence outputs to replacement clause skeleton IDs",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_replacement_map.v1.0.json"
+    },
+    {
+      "name": "feoc_statute_citations_v1.0.json",
+      "role": "Single source of truth for FEOC statutes, regulations, guidance, and canonical URLs",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_statute_citations_v1.0.json"
+    },
+    {
+      "name": "feoc_analysis_output_schema.v1.0.json",
+      "role": "Describes expected analysis output",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_analysis_output_schema.v1.0.json"
+    }
+  ]
+}
