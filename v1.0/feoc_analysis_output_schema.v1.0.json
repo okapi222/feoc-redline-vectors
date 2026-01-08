@@ -4,7 +4,13 @@
   "title": "FEOC Contract Analysis Output Schema (v1.0)",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "manifest_url", "document", "summary", "findings"],
+  "required": [
+    "schema_version",
+    "manifest_url",
+    "document",
+    "summary",
+    "findings"
+  ],
   "properties": {
     "schema_version": {
       "type": "string",
@@ -18,46 +24,108 @@
     "run": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["run_id", "created_at_utc"],
+      "required": [
+        "run_id",
+        "created_at_utc"
+      ],
       "properties": {
-        "run_id": { "type": "string" },
-        "created_at_utc": { "type": "string", "format": "date-time" },
-        "engine": { "type": "string", "description": "Analyzer implementation identifier (optional)." },
-        "notes": { "type": "string" }
+        "run_id": {
+          "type": "string"
+        },
+        "created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "engine": {
+          "type": "string",
+          "description": "Analyzer implementation identifier (optional)."
+        },
+        "notes": {
+          "type": "string"
+        }
       }
     },
     "document": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_name"],
+      "required": [
+        "source_name"
+      ],
       "properties": {
-        "source_name": { "type": "string" },
-        "source_type": { "type": "string", "enum": ["docx", "pdf", "text", "unknown"] },
-        "source_hash": { "type": "string", "description": "Optional content hash of source document." }
+        "source_name": {
+          "type": "string"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "docx",
+            "pdf",
+            "text",
+            "unknown"
+          ]
+        },
+        "source_hash": {
+          "type": "string",
+          "description": "Optional content hash of source document."
+        }
       }
     },
     "summary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["overall_severity", "hard_stop_required", "ui_behavior", "counts"],
+      "required": [
+        "overall_severity",
+        "hard_stop_required",
+        "ui_behavior",
+        "counts"
+      ],
       "properties": {
         "overall_severity": {
           "type": "string",
           "description": "Computed per v1.0/feoc_global_rules.v1.0.json severity_policy."
         },
-        "hard_stop_required": { "type": "boolean" },
-        "ui_behavior": { "$ref": "#/$defs/ui_behavior" },
+        "hard_stop_required": {
+          "type": "boolean"
+        },
+        "ui_behavior": {
+          "$ref": "#/$defs/ui_behavior"
+        },
         "counts": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["findings_total", "fatal", "high", "medium", "low", "info"],
+          "required": [
+            "findings_total",
+            "fatal",
+            "high",
+            "medium",
+            "low",
+            "info"
+          ],
           "properties": {
-            "findings_total": { "type": "integer", "minimum": 0 },
-            "fatal": { "type": "integer", "minimum": 0 },
-            "high": { "type": "integer", "minimum": 0 },
-            "medium": { "type": "integer", "minimum": 0 },
-            "low": { "type": "integer", "minimum": 0 },
-            "info": { "type": "integer", "minimum": 0 }
+            "findings_total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fatal": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "high": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "medium": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "low": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "info": {
+              "type": "integer",
+              "minimum": 0
+            }
           }
         }
       }
@@ -65,30 +133,49 @@
     "findings": {
       "type": "array",
       "minItems": 0,
-      "items": { "$ref": "#/$defs/finding" }
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
     },
     "errors": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     }
   },
   "$defs": {
     "ui_behavior": {
       "type": "object",
       "additionalProperties": true,
-      "required": ["banner", "user_action", "allow_override"],
+      "required": [
+        "banner",
+        "user_action",
+        "allow_override"
+      ],
       "properties": {
-        "banner": { "type": "string" },
-        "user_action": { "type": "string" },
-        "allow_override": { "type": "boolean" },
-        "override_requires_note": { "type": "boolean" }
+        "banner": {
+          "type": "string"
+        },
+        "user_action": {
+          "type": "string"
+        },
+        "allow_override": {
+          "type": "boolean"
+        },
+        "override_requires_note": {
+          "type": "boolean"
+        }
       },
       "description": "Must match the ui_behavior for the computed severity in v1.0/feoc_global_rules.v1.0.json severity_policy."
     },
     "severity_source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_file", "source_path"],
+      "required": [
+        "source_file",
+        "source_path"
+      ],
       "properties": {
         "source_file": {
           "type": "string",
@@ -103,34 +190,69 @@
     "authority": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["auth_id", "citation", "canonical_source", "canonical_url"],
+      "required": [
+        "auth_id",
+        "citation",
+        "canonical_source",
+        "canonical_url"
+      ],
       "properties": {
-        "auth_id": { "type": "string", "pattern": "^AUTH-[A-Za-z0-9\\-_.]+$" },
-        "citation": { "type": "string" },
-        "pinpoint": { "type": "string" },
-        "canonical_source": { "type": "string" },
-        "canonical_url": { "type": "string", "format": "uri" },
+        "auth_id": {
+          "type": "string",
+          "pattern": "^AUTH-[A-Za-z0-9\\-_.]+$"
+        },
+        "citation": {
+          "type": "string"
+        },
+        "pinpoint": {
+          "type": "string"
+        },
+        "canonical_source": {
+          "type": "string"
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
         "alternate_urls": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" }
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
         }
       },
-      "description": "Resolved from v1.0/feoc_statute_citations_v1.0.json. canonical_url/canonical_source must match the authority table; do not invent."
+      "description": "Resolved from v1.0/feoc_statute_citations_v1.0.json; canonical_url/canonical_source must match the authority table."
     },
     "snippet": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
-        "text": { "type": "string", "minLength": 1 },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
         "location": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "section": { "type": "string" },
-            "clause": { "type": "string" },
-            "page": { "type": "integer", "minimum": 0 },
-            "paragraph_index": { "type": "integer", "minimum": 0 }
+            "section": {
+              "type": "string"
+            },
+            "clause": {
+              "type": "string"
+            },
+            "page": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "paragraph_index": {
+              "type": "integer",
+              "minimum": 0
+            }
           }
         }
       }
@@ -138,17 +260,33 @@
     "finding": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["finding_id", "clause", "analysis"],
+      "required": [
+        "finding_id",
+        "clause",
+        "analysis"
+      ],
       "properties": {
-        "finding_id": { "type": "string" },
+        "finding_id": {
+          "type": "string"
+        },
         "clause": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["clause_id", "heading", "snippet"],
+          "required": [
+            "clause_id",
+            "heading",
+            "snippet"
+          ],
           "properties": {
-            "clause_id": { "type": "string" },
-            "heading": { "type": "string" },
-            "snippet": { "$ref": "#/$defs/snippet" }
+            "clause_id": {
+              "type": "string"
+            },
+            "heading": {
+              "type": "string"
+            },
+            "snippet": {
+              "$ref": "#/$defs/snippet"
+            }
           }
         },
         "analysis": {
@@ -159,66 +297,117 @@
             "CONSEQUENCE",
             "REPLACEMENT",
             "SEVERITY",
-            "SEVERITY_SOURCE"
+            "SEVERITY_SOURCE",
+            "UI_BEHAVIOR"
           ],
           "properties": {
             "VECTOR": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["vector_id", "rationale", "authorities"],
+              "required": [
+                "vector_id",
+                "rationale",
+                "authorities"
+              ],
               "properties": {
-                "vector_id": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" },
-                "vector_name": { "type": "string" },
-                "control_id": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" },
-                "rationale": { "type": "string", "minLength": 1 },
+                "vector_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "vector_name": {
+                  "type": "string"
+                },
+                "control_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "rationale": {
+                  "type": "string",
+                  "minLength": 1
+                },
                 "authorities": {
                   "type": "array",
                   "minItems": 1,
-                  "items": { "$ref": "#/$defs/authority" }
+                  "items": {
+                    "$ref": "#/$defs/authority"
+                  }
                 }
               }
             },
             "CONSEQUENCE": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["consequence_id", "authorities"],
+              "required": [
+                "consequence_id",
+                "authorities"
+              ],
               "properties": {
-                "consequence_id": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" },
-                "control_id": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" },
-                "output_class": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" },
-                "summary": { "type": "string" },
+                "consequence_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "control_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "output_class": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9\\-_.]+$"
+                },
+                "summary": {
+                  "type": "string"
+                },
                 "authorities": {
                   "type": "array",
                   "minItems": 1,
-                  "items": { "$ref": "#/$defs/authority" }
+                  "items": {
+                    "$ref": "#/$defs/authority"
+                  }
                 }
               }
             },
             "REPLACEMENT": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["replacement_ids"],
+              "required": [
+                "replacement_ids"
+              ],
               "properties": {
                 "replacement_ids": {
                   "type": "array",
                   "minItems": 1,
-                  "items": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" }
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9\\-_.]+$"
+                  }
                 },
                 "clause_skeleton_ids": {
                   "type": "array",
-                  "items": { "type": "string", "pattern": "^[A-Za-z0-9\\-_.]+$" }
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9\\-_.]+$"
+                  }
                 },
-                "notes": { "type": "string" }
+                "notes": {
+                  "type": "string"
+                }
               }
             },
-            "SEVERITY": { "type": "string" },
-            "SEVERITY_SOURCE": { "$ref": "#/$defs/severity_source" },
-            "UI_BEHAVIOR": { "$ref": "#/$defs/ui_behavior" },
-
+            "SEVERITY": {
+              "type": "string"
+            },
+            "SEVERITY_SOURCE": {
+              "$ref": "#/$defs/severity_source"
+            },
+            "UI_BEHAVIOR": {
+              "$ref": "#/$defs/ui_behavior"
+            },
             "AUTHORITIES": {
               "type": "array",
-              "items": { "$ref": "#/$defs/authority" },
-              "description": "Deprecated. Use VECTOR.authorities and CONSEQUENCE.authorities. May be provided for backward compatibility but must not be relied on."
+              "items": {
+                "$ref": "#/$defs/authority"
+              },
+              "description": "Deprecated combined authorities list. Prefer VECTOR.authorities and CONSEQUENCE.authorities."
             }
           }
         }
