@@ -2,7 +2,8 @@
   "version": "v1.0",
   "as_of_date": "2026-01-06",
   "notes": [
-    "URLs are canonical public sources for statutory/regulatory text. Use these in UI; avoid hardcoding into contract comments."
+    "URLs are canonical public sources for statutory/regulatory text. Use these in UI; avoid hardcoding into contract comments.",
+    "canonical_url is the preferred UI link to original statutory/regulatory/guidance text; canonical_source indicates the hosting authority."
   ],
   "authorities": [
     {
@@ -10,70 +11,85 @@
       "citation": "26 U.S.C. \u00a7 45Y",
       "title": "Clean electricity production credit",
       "type": "statute",
-      "url_primary": "https://www.govinfo.gov/link/uscode/26/45Y",
-      "url_alt": "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title26-section45Y",
-      "feoc_relevance": "Contains restrictions relating to prohibited foreign entities and material assistance cross-referencing IRC \u00a77701(a).",
-      "pinpoint": "See subsection(s) addressing prohibited foreign entity/material assistance (cross-ref to \u00a77701(a)(51)-(52))."
+      "canonical_source": "govinfo",
+      "canonical_url": "https://www.govinfo.gov/link/uscode/26/45Y",
+      "alternate_urls": [
+        "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title26-section45Y"
+      ],
+      "pinpoint": "See subsection(s) addressing prohibited foreign entity/material assistance (cross-ref to \u00a77701(a)(51)-(52)).",
+      "feoc_relevance": "Contains restrictions relating to prohibited foreign entities and material assistance cross-referencing IRC \u00a77701(a)."
     },
     {
       "id": "AUTH-26-48E",
       "citation": "26 U.S.C. \u00a7 48E",
       "title": "Clean electricity investment credit",
       "type": "statute",
-      "url_primary": "https://www.govinfo.gov/link/uscode/26/48E",
-      "url_alt": "https://www.law.cornell.edu/uscode/text/26/48E",
-      "feoc_relevance": "Contains restrictions for 'material assistance from a prohibited foreign entity' (cross-ref to IRC \u00a77701(a)(52)).",
-      "pinpoint": "Material assistance restriction; cross-ref to \u00a77701(a)(52)."
+      "canonical_source": "govinfo",
+      "canonical_url": "https://www.govinfo.gov/link/uscode/26/48E",
+      "alternate_urls": [
+        "https://www.law.cornell.edu/uscode/text/26/48E"
+      ],
+      "pinpoint": "Material assistance restriction; cross-ref to \u00a77701(a)(52).",
+      "feoc_relevance": "Contains restrictions for 'material assistance from a prohibited foreign entity' (cross-ref to IRC \u00a77701(a)(52))."
     },
     {
       "id": "AUTH-26-45X",
       "citation": "26 U.S.C. \u00a7 45X",
       "title": "Advanced manufacturing production credit",
       "type": "statute",
-      "url_primary": "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title26-section45X",
-      "url_alt": "https://www.law.cornell.edu/uscode/text/26/45X",
-      "feoc_relevance": "Contains restrictions for (i) taxpayer as prohibited foreign entity and (ii) 'material assistance from prohibited foreign entities' (cross-ref to IRC \u00a77701(a)(51)-(52)).",
-      "pinpoint": "Restriction paragraphs and subparagraphs referencing \u00a77701(a)(51) and \u00a77701(a)(52)."
+      "canonical_source": "uscode.house.gov",
+      "canonical_url": "https://uscode.house.gov/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title26-section45X",
+      "alternate_urls": [
+        "https://www.law.cornell.edu/uscode/text/26/45X"
+      ],
+      "pinpoint": "Restriction paragraphs and subparagraphs referencing \u00a77701(a)(51) and \u00a77701(a)(52).",
+      "feoc_relevance": "Contains restrictions for (i) taxpayer as prohibited foreign entity and (ii) 'material assistance from prohibited foreign entities' (cross-ref to IRC \u00a77701(a)(51)-(52))."
     },
     {
       "id": "AUTH-26-7701A",
       "citation": "26 U.S.C. \u00a7 7701(a)",
       "title": "Definitions (including prohibited foreign entity / material assistance definitions)",
       "type": "statute",
-      "url_primary": "https://www.govinfo.gov/link/uscode/26/7701",
-      "url_alt": "https://www.law.cornell.edu/uscode/text/26/7701",
-      "feoc_relevance": "Defines 'prohibited foreign entity' and related terms in \u00a77701(a)(51) and 'material assistance from a prohibited foreign entity' in \u00a77701(a)(52) (as reflected in current codifications).",
-      "pinpoint": "\u00a77701(a)(51)-(52)"
+      "canonical_source": "govinfo",
+      "canonical_url": "https://www.govinfo.gov/link/uscode/26/7701",
+      "alternate_urls": [
+        "https://www.law.cornell.edu/uscode/text/26/7701"
+      ],
+      "pinpoint": "\u00a77701(a)(51)-(52)",
+      "feoc_relevance": "Defines 'prohibited foreign entity' and related terms in \u00a77701(a)(51) and 'material assistance from a prohibited foreign entity' in \u00a77701(a)(52) (as reflected in current codifications)."
     },
     {
       "id": "AUTH-15-4651-8",
       "citation": "15 U.S.C. \u00a7 4651(8)",
       "title": "Definition of 'foreign entity of concern' (FEOC)",
       "type": "statute",
-      "url_primary": "https://www.govinfo.gov/link/uscode/15/4651",
-      "url_alt": "https://uscode.house.gov/view.xhtml?req=(title:15%20section:4651%20edition:prelim)",
-      "feoc_relevance": "Baseline FEOC definition used across federal programs; referenced in FEOC/PFE frameworks.",
-      "pinpoint": "\u00a74651(8)"
+      "canonical_source": "govinfo",
+      "canonical_url": "https://www.govinfo.gov/link/uscode/15/4651",
+      "alternate_urls": [
+        "https://uscode.house.gov/view.xhtml?req=(title:15%20section:4651%20edition:prelim)"
+      ],
+      "pinpoint": "\u00a74651(8)",
+      "feoc_relevance": "Baseline FEOC definition used across federal programs; referenced in FEOC/PFE frameworks."
     },
     {
       "id": "AUTH-15-CFR-231-104",
       "citation": "15 C.F.R. \u00a7 231.104",
       "title": "Foreign entity of concern (regulatory definition)",
       "type": "regulation",
-      "url_primary": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-II/subchapter-C/part-231/subpart-A/section-231.104",
-      "url_alt": null,
-      "feoc_relevance": "Implements FEOC definition in DOE context for certain programs.",
-      "pinpoint": "\u00a7231.104"
+      "canonical_source": "ecfr",
+      "canonical_url": "https://www.ecfr.gov/current/title-15/subtitle-B/chapter-II/subchapter-C/part-231/subpart-A/section-231.104",
+      "pinpoint": "\u00a7231.104",
+      "feoc_relevance": "Implements FEOC definition in DOE context for certain programs."
     },
     {
       "id": "AUTH-DOE-FEOC-2024-GUIDANCE",
       "citation": "DOE Interpretive Guidance on Foreign Entities of Concern (May 2024)",
       "title": "DOE FEOC interpretive guidance",
       "type": "guidance",
-      "url_primary": "https://www.energy.gov/sites/default/files/2024-05/2024.05.06%20DOE%20FEOC%20Interpretive%20Guidance%20-%20External_OS.pdf",
-      "url_alt": null,
-      "feoc_relevance": "Interpretive guidance for FEOC definition and application in DOE-administered programs; useful for diligence and UI explanations.",
-      "pinpoint": "Document overall; cite relevant pages in UI if quoting."
+      "canonical_source": "energy.gov",
+      "canonical_url": "https://www.energy.gov/sites/default/files/2024-05/2024.05.06%20DOE%20FEOC%20Interpretive%20Guidance%20-%20External_OS.pdf",
+      "pinpoint": "Document overall; cite relevant pages in UI if quoting.",
+      "feoc_relevance": "Interpretive guidance for FEOC definition and application in DOE-administered programs; useful for diligence and UI explanations."
     }
   ]
 }
