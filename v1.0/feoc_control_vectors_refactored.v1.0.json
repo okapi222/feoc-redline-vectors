@@ -1,36 +1,23 @@
 {
   "version": "v1.0",
-  "as_of_date": "2026-01-06",
-  "schema": {
-    "vector_id": "string",
-    "name": "string",
-    "description": "string",
-    "trigger_signals": [
-      "string"
-    ],
-    "statute_refs": [
-      "AUTH-*"
-    ],
-    "consequence_class": "FAIL|CONDITIONAL|DISCLOSE",
-    "replacement_pattern_ids": [
-      "string"
-    ]
-  },
+  "description": "Authoritative FEOC control vectors with explicit control_id mappings, trigger signals, statute references, and default severity hooks.",
   "vectors": [
     {
       "vector_id": "CV-COUNTERPARTY-FOREIGN-PFE",
-      "name": "Foreign / potential PFE counterparty",
-      "description": "Counterparty is foreign-organized or could qualify as a prohibited foreign entity; requires reps/covenants and termination rights.",
+      "control_id": "FEOC_ENTITY_STATUS",
+      "name": "Foreign / potential prohibited foreign entity counterparty",
+      "description": "Counterparty is foreign-organized or may qualify as a prohibited foreign entity, requiring FEOC representations, covenants, and termination rights.",
       "trigger_signals": [
         "counterparty organized under non-U.S. law",
-        "no disclosure of ownership/control chain",
-        "broad affiliate/subcontractor performance rights"
+        "no disclosure of ownership or control chain",
+        "broad affiliate or subcontractor performance rights",
+        "no obligation to disclose nationality or ownership of subcontractors"
       ],
       "statute_refs": [
         "AUTH-26-7701A",
         "AUTH-15-4651-8"
       ],
-      "consequence_class": "CONDITIONAL",
+      "default_severity": "FATAL",
       "replacement_pattern_ids": [
         "RP-FEOC-REP-COV",
         "RP-DISCLOSURE-APPROVAL",
@@ -39,12 +26,14 @@
     },
     {
       "vector_id": "CV-MATERIAL-ASSISTANCE-SUPPLYCHAIN",
-      "name": "Material assistance / supply-chain dependence",
-      "description": "Contract structure allows or requires sourcing, services, IP, or data flows that could be treated as 'material assistance' from a prohibited foreign entity (depending on statutory tests and guidance).",
+      "control_id": "FEOC_MATERIAL_ASSISTANCE",
+      "name": "Material assistance via global supply chain, IP, or services",
+      "description": "Contract structure permits sourcing, services, IP, software, firmware, or data flows that may constitute material assistance from a prohibited foreign entity.",
       "trigger_signals": [
         "operator sole discretion sourcing from global supply chain",
-        "proprietary software/firmware controlled by operator",
-        "data hosted outside U.S.; owner lacks raw access"
+        "use of proprietary software, firmware, or algorithms controlled by operator",
+        "operator-hosted or offshore software systems",
+        "offshore data storage with no owner raw access"
       ],
       "statute_refs": [
         "AUTH-26-45Y",
@@ -52,7 +41,7 @@
         "AUTH-26-45X",
         "AUTH-26-7701A"
       ],
-      "consequence_class": "FAIL",
+      "default_severity": "FATAL",
       "replacement_pattern_ids": [
         "RP-US-HOSTING-ESCROW",
         "RP-SUPPLYCHAIN-COVENANT",
@@ -61,18 +50,20 @@
     },
     {
       "vector_id": "CV-OPERATIONAL-CONTROL-STEPIN",
-      "name": "Operational control + weak step-in",
-      "description": "Operator retains day-to-day dispatch/configuration control; owner cannot step in effectively (especially due to IP restrictions).",
+      "control_id": "FEOC_OM_PROVIDER",
+      "name": "Operational control concentration and ineffective step-in",
+      "description": "Operator retains day-to-day operational authority and system control while owner lacks effective step-in or IP rights to remediate FEOC risk.",
       "trigger_signals": [
-        "operator has primary operational authority",
-        "remote monitoring/control retained by operator",
-        "step-in limited to insolvency; no IP license"
+        "operator has primary day-to-day operational authority",
+        "remote monitoring and control retained by operator",
+        "step-in rights limited to insolvency",
+        "owner has no license to operator IP or software on termination"
       ],
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E"
       ],
-      "consequence_class": "FAIL",
+      "default_severity": "HIGH",
       "replacement_pattern_ids": [
         "RP-STEPIN-IP-LICENSE",
         "RP-OWNER-CONTROL-OVERRIDE"
@@ -80,19 +71,20 @@
     },
     {
       "vector_id": "CV-DATA-SOVEREIGNTY",
-      "name": "Data sovereignty and auditability failure",
-      "description": "Operator owns operational data and can store offshore; owner lacks raw access\u2014undermines diligence and compliance proofs.",
+      "control_id": "FEOC_AUDIT_RIGHTS_MISSING",
+      "name": "Data ownership, access, and sovereignty failure",
+      "description": "Operator owns operational data, permits offshore storage, and limits owner to reports only, undermining auditability and FEOC compliance proof.",
       "trigger_signals": [
-        "operator owns all operational data",
-        "offshore storage permitted",
-        "owner has reports only; no raw access"
+        "operator owns all operational, performance, or diagnostic data",
+        "data may be stored outside the United States",
+        "owner has no direct access to raw data or control systems"
       ],
       "statute_refs": [
         "AUTH-DOE-FEOC-2024-GUIDANCE",
         "AUTH-26-45Y",
         "AUTH-26-48E"
       ],
-      "consequence_class": "CONDITIONAL",
+      "default_severity": "MEDIUM",
       "replacement_pattern_ids": [
         "RP-OWNER-DATA-OWNERSHIP",
         "RP-US-DATA-HOSTING",
