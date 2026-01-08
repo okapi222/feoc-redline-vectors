@@ -1,6 +1,6 @@
 {
   "version": "v1.0",
-  "description": "Global enforcement rules governing severity, UI behavior, fatality, and output validity for FEOC analysis.",
+  "description": "Global enforcement rules governing severity resolution, UI behavior, fatality, and output validity for FEOC analysis.",
   "severity_policy": [
     {
       "severity": "FATAL",
@@ -36,7 +36,7 @@
   "severity_resolution_rules": [
     {
       "rule_id": "GR-SEVERITY-ESCALATION",
-      "description": "If multiple findings exist, overall severity is the highest severity present.",
+      "description": "Overall severity equals the highest severity present across all findings.",
       "logic": "MAX_SEVERITY"
     }
   ],
@@ -65,6 +65,38 @@
       "on_failure": {
         "action": "REJECT_OUTPUT",
         "message": "Invalid analysis output: each finding must include clause.snippet.text and analysis.VECTOR.rationale."
+      }
+    },
+    {
+      "rule_id": "GR-OUTPUT-AUTHORITY-URL-MUST-MATCH-STATUTE-TABLE",
+      "name": "Reject outputs whose authority canonical_url/source do not match statute table",
+      "scope": "analysis_output",
+      "priority": 20,
+      "hard_stop": true,
+      "failure_mode": "INVALID_OUTPUT",
+      "description": "For every authority referenced in VECTOR.authorities and CONSEQUENCE.authorities, auth_id must exist in feoc_statute_citations_v1.0.json and canonical_url/canonical_source must exactly match the statute table.",
+      "requirements": [
+        {
+          "path": "findings[*].analysis.VECTOR.authorities[*]",
+          "constraint": "cross_reference_authority"
+        },
+        {
+          "path": "findings[*].analysis.CONSEQUENCE.authorities[*]",
+          "constraint": "cross_reference_authority"
+        }
+      ],
+      "cross_reference": {
+        "authority_table_manifest_name": "feoc_statute_citations_v1.0.json",
+        "authority_table_key_field": "id",
+        "output_authority_id_field": "auth_id",
+        "must_match_fields": [
+          "canonical_url",
+          "canonical_source"
+        ]
+      },
+      "on_failure": {
+        "action": "REJECT_OUTPUT",
+        "message": "Invalid analysis output: authority canonical_url/canonical_source must match feoc_statute_citations_v1.0.json for each auth_id."
       }
     }
   ]
