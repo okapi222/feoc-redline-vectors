@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "name": "feoc_clause_skeletons.v1.0.json",
+      "name": "feoc_clause_skeletons.v1.0.1.json",
       "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_clause_skeletons.v1.0.json",
       "role": "Clause skeleton library containing short-form and long-form replacement clause templates"
     },
