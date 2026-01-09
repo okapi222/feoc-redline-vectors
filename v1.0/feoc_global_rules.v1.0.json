@@ -1,103 +1,101 @@
 {
-  "version": "v1.0",
   "description": "Global enforcement rules governing severity resolution, UI behavior, fatality, and output validity for FEOC analysis.",
-  "severity_policy": [
-    {
-      "severity": "FATAL",
-      "hard_stop_required": true,
-      "ui_behavior": {
-        "banner": "HARD_STOP",
-        "user_action": "REPLACE_REQUIRED",
-        "allow_override": false
-      }
-    },
-    {
-      "severity": "HIGH",
-      "hard_stop_required": false,
-      "ui_behavior": {
-        "banner": "RED_FLAG",
-        "user_action": "REPLACE_RECOMMENDED",
-        "allow_override": true,
-        "override_requires_note": true
-      }
-    },
-    {
-      "severity": "MEDIUM",
-      "hard_stop_required": false,
-      "ui_behavior": {
-        "banner": "WARNING",
-        "user_action": "REVIEW_RECOMMENDED",
-        "allow_override": true,
-        "override_requires_note": false
-      }
-    }
-  ],
-
-  "severity_resolution_rules": [
-    {
-      "rule_id": "GR-SEVERITY-ESCALATION",
-      "description": "Overall severity equals the highest severity present across all findings.",
-      "logic": "MAX_SEVERITY"
-    }
-  ],
-
   "output_validation_rules": [
     {
-      "rule_id": "GR-OUTPUT-REQUIRES-SNIPPET-AND-RATIONALE",
-      "name": "Reject findings missing clause snippet or vector rationale",
-      "scope": "analysis_output",
-      "priority": 10,
-      "hard_stop": true,
-      "failure_mode": "INVALID_OUTPUT",
       "description": "Every clause-level finding must include a non-empty clause snippet and a non-empty VECTOR.rationale. Missing either invalidates the entire analysis output.",
-      "requirements": [
-        {
-          "path": "findings[*].clause.snippet.text",
-          "constraint": "required_non_empty_string",
-          "min_length": 1
-        },
-        {
-          "path": "findings[*].analysis.VECTOR.rationale",
-          "constraint": "required_non_empty_string",
-          "min_length": 1
-        }
-      ],
+      "failure_mode": "INVALID_OUTPUT",
+      "hard_stop": true,
+      "name": "Reject findings missing clause snippet or vector rationale",
       "on_failure": {
         "action": "REJECT_OUTPUT",
         "message": "Invalid analysis output: each finding must include clause.snippet.text and analysis.VECTOR.rationale."
-      }
-    },
-    {
-      "rule_id": "GR-OUTPUT-AUTHORITY-URL-MUST-MATCH-STATUTE-TABLE",
-      "name": "Reject outputs whose authority canonical_url/source do not match statute table",
-      "scope": "analysis_output",
-      "priority": 20,
-      "hard_stop": true,
-      "failure_mode": "INVALID_OUTPUT",
-      "description": "For every authority referenced in VECTOR.authorities and CONSEQUENCE.authorities, auth_id must exist in feoc_statute_citations_v1.0.json and canonical_url/canonical_source must exactly match the statute table.",
+      },
+      "priority": 10,
       "requirements": [
         {
-          "path": "findings[*].analysis.VECTOR.authorities[*]",
-          "constraint": "cross_reference_authority"
+          "constraint": "required_non_empty_string",
+          "min_length": 1,
+          "path": "findings[*].clause.snippet.text"
         },
         {
-          "path": "findings[*].analysis.CONSEQUENCE.authorities[*]",
-          "constraint": "cross_reference_authority"
+          "constraint": "required_non_empty_string",
+          "min_length": 1,
+          "path": "findings[*].analysis.VECTOR.rationale"
         }
       ],
+      "rule_id": "GR-OUTPUT-REQUIRES-SNIPPET-AND-RATIONALE",
+      "scope": "analysis_output"
+    },
+    {
       "cross_reference": {
-        "authority_table_manifest_name": "feoc_statute_citations_v1.0.json",
         "authority_table_key_field": "id",
-        "output_authority_id_field": "auth_id",
+        "authority_table_manifest_name": "feoc_statute_citations_v1.0.json",
         "must_match_fields": [
           "canonical_url",
           "canonical_source"
-        ]
+        ],
+        "output_authority_id_field": "auth_id"
       },
+      "description": "For every authority referenced in VECTOR.authorities and CONSEQUENCE.authorities, auth_id must exist in feoc_statute_citations_v1.0.json and canonical_url/canonical_source must exactly match the statute table.",
+      "failure_mode": "INVALID_OUTPUT",
+      "hard_stop": true,
+      "name": "Reject outputs whose authority canonical_url/source do not match statute table",
       "on_failure": {
         "action": "REJECT_OUTPUT",
         "message": "Invalid analysis output: authority canonical_url/canonical_source must match feoc_statute_citations_v1.0.json for each auth_id."
+      },
+      "priority": 20,
+      "requirements": [
+        {
+          "constraint": "cross_reference_authority",
+          "path": "findings[*].analysis.VECTOR.authorities[*]"
+        },
+        {
+          "constraint": "cross_reference_authority",
+          "path": "findings[*].analysis.CONSEQUENCE.authorities[*]"
+        }
+      ],
+      "rule_id": "GR-OUTPUT-AUTHORITY-URL-MUST-MATCH-STATUTE-TABLE",
+      "scope": "analysis_output"
+    }
+  ],
+  "severity_policy": [
+    {
+      "hard_stop_required": true,
+      "severity": "FATAL",
+      "ui_behavior": {
+        "allow_override": false,
+        "banner": "HARD_STOP",
+        "user_action": "REPLACE_REQUIRED"
+      }
+    },
+    {
+      "hard_stop_required": false,
+      "severity": "HIGH",
+      "ui_behavior": {
+        "allow_override": true,
+        "banner": "RED_FLAG",
+        "override_requires_note": true,
+        "user_action": "REPLACE_RECOMMENDED"
+      }
+    },
+    {
+      "hard_stop_required": false,
+      "severity": "MEDIUM",
+      "ui_behavior": {
+        "allow_override": true,
+        "banner": "WARNING",
+        "override_requires_note": false,
+        "user_action": "REVIEW_RECOMMENDED"
       }
     }
-  ]
+  ],
+  "severity_resolution_rules": [
+    {
+      "description": "Overall severity equals the highest severity present across all findings.",
+      "logic": "MAX_SEVERITY",
+      "rule_id": "GR-SEVERITY-ESCALATION"
+    }
+  ],
+  "version": "v1.0"
 }

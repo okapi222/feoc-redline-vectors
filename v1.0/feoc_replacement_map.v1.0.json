@@ -1,7 +1,6 @@
 {
-  "version": "1.0",
-  "frozen": true,
   "file": "replacement_map.v1.0.json",
+  "frozen": true,
   "mappings": [
     {
       "output_class": "CREDIT_DISQUALIFICATION",
@@ -111,5 +110,6 @@
       ],
       "termination_required": false
     }
-  ]
+  ],
+  "version": "1.0"
 }

@@ -1,7 +1,6 @@
 {
-  "version": "v1.0",
-  "frozen": true,
   "file": "feoc_consequence_map.v1.0.json",
+  "frozen": true,
   "notes": [
     "Adds statute_refs so CONSEQUENCE.authorities can be populated deterministically from feoc_statute_citations_v1.0.json.",
     "statute_refs must contain only authority IDs that exist in v1.0/feoc_statute_citations_v1.0.json."
@@ -9,9 +8,9 @@
   "rules": [
     {
       "control_id": "FEOC_ENTITY_STATUS",
+      "hard_stop": true,
       "output_class": "CREDIT_DISQUALIFICATION",
       "severity": "FATAL",
-      "hard_stop": true,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -22,9 +21,9 @@
     },
     {
       "control_id": "FEOC_MATERIAL_ASSISTANCE",
+      "hard_stop": true,
       "output_class": "CREDIT_DISQUALIFICATION",
       "severity": "FATAL",
-      "hard_stop": true,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -34,9 +33,9 @@
     },
     {
       "control_id": "FEOC_SUPPLY_CHAIN_CONTENT",
+      "hard_stop": false,
       "output_class": "CREDIT_AT_RISK",
       "severity": "HIGH",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -46,9 +45,9 @@
     },
     {
       "control_id": "FEOC_OM_PROVIDER",
+      "hard_stop": false,
       "output_class": "STRUCTURAL_RISK",
       "severity": "HIGH",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -57,9 +56,9 @@
     },
     {
       "control_id": "FEOC_CHANGE_OF_CONTROL_SILENT",
+      "hard_stop": false,
       "output_class": "FUTURE_EXPOSURE",
       "severity": "MEDIUM",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -69,9 +68,9 @@
     },
     {
       "control_id": "FEOC_REPRESENTATION_MISSING",
+      "hard_stop": false,
       "output_class": "REMEDY_GAP",
       "severity": "MEDIUM",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -80,9 +79,9 @@
     },
     {
       "control_id": "FEOC_AUDIT_RIGHTS_MISSING",
+      "hard_stop": false,
       "output_class": "PROOF_FAILURE",
       "severity": "MEDIUM",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -91,9 +90,9 @@
     },
     {
       "control_id": "FEOC_INDEMNITY_EXCLUDED",
+      "hard_stop": false,
       "output_class": "ECONOMIC_LOSS",
       "severity": "HIGH",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -102,9 +101,9 @@
     },
     {
       "control_id": "FEOC_TERMINATION_MISSING",
+      "hard_stop": false,
       "output_class": "LOCKED_IN_RISK",
       "severity": "HIGH",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
@@ -113,14 +112,15 @@
     },
     {
       "control_id": "FEOC_CURABLE_BREACH",
+      "hard_stop": false,
       "output_class": "FALSE_COMPLIANCE",
       "severity": "HIGH",
-      "hard_stop": false,
       "statute_refs": [
         "AUTH-26-45Y",
         "AUTH-26-48E",
         "AUTH-26-45X"
       ]
     }
-  ]
+  ],
+  "version": "v1.0"
 }
