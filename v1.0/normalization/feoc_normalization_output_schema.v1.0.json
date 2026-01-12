@@ -2,132 +2,171 @@
   {
     "concept_id": "FEOC_ENTITY_STATUS_",
     "definition": "A relevant party is or could be a prohibited foreign entity due to ownership, control, organization, or jurisdiction.",
+    "excludes": [
+      "Explicitly domestic entity",
+      "Clear ownership and control disclosures with no covered-nation indicators"
+    ],
     "includes": [
       "Non-U.S. entity with unclear ownership or control",
       "Affiliate or subcontractor with potential covered-nation control",
       "Silence on ownership, control, or jurisdiction"
     ],
-    "excludes": [
-      "Explicitly domestic entity",
-      "Clear ownership and control disclosures with no covered-nation indicators"
-    ],
-    "required_qualifiers": ["actors", "polarity", "modality"]
+    "required_qualifiers": [
+      "actors",
+      "polarity",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_MATERIAL_ASSISTANCE",
     "definition": "Contract allows goods, services, IP, software, data, or tooling that could constitute material assistance from a prohibited foreign entity.",
+    "excludes": [
+      "Explicit prohibitions on FEOC sourcing",
+      "Approval-gated or U.S.-only sourcing with audit rights"
+    ],
     "includes": [
       "Unrestricted global sourcing",
       "Foreign-controlled software, firmware, or algorithms",
       "Offshore data hosting without owner access"
     ],
-    "excludes": [
-      "Explicit prohibitions on FEOC sourcing",
-      "Approval-gated or U.S.-only sourcing with audit rights"
-    ],
-    "required_qualifiers": ["actors", "objects", "qualifiers", "confidence"]
+    "required_qualifiers": [
+      "actors",
+      "objects",
+      "qualifiers",
+      "confidence"
+    ]
   },
   {
     "concept_id": "FEOC_OM_PROVIDER",
     "definition": "Operator retains operational control such that FEOC risk cannot be mitigated by owner step-in or IP rights.",
+    "excludes": [
+      "Robust step-in rights",
+      "Owner access to IP and systems sufficient to maintain compliant operations"
+    ],
     "includes": [
       "Operator-controlled day-to-day operations",
       "Limited step-in rights",
       "No license or escrow for critical IP or software"
     ],
-    "excludes": [
-      "Robust step-in rights",
-      "Owner access to IP and systems sufficient to maintain compliant operations"
-    ],
-    "required_qualifiers": ["actors", "qualifiers", "modality"]
+    "required_qualifiers": [
+      "actors",
+      "qualifiers",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_AUDIT_RIGHTS_MISSING",
     "definition": "Audit or data access rights are insufficient to verify FEOC compliance.",
+    "excludes": [
+      "Owner audit rights with raw data and system access",
+      "Clear data sovereignty and access provisions"
+    ],
     "includes": [
       "Operator-owned operational or performance data",
       "Offshore data storage permitted",
       "Owner limited to reports without raw data access"
     ],
-    "excludes": [
-      "Owner audit rights with raw data and system access",
-      "Clear data sovereignty and access provisions"
-    ],
-    "required_qualifiers": ["objects", "qualifiers", "polarity"]
+    "required_qualifiers": [
+      "objects",
+      "qualifiers",
+      "polarity"
+    ]
   },
   {
     "concept_id": "FEOC_SUPPLY_CHAIN_CONTENT",
     "definition": "Supply chain controls are missing or inadequate to prevent FEOC-linked content.",
+    "excludes": [
+      "Explicit sourcing restrictions with certification and audit rights"
+    ],
     "includes": [
       "No sourcing covenants",
       "No supplier disclosure or certification",
       "No audit or traceability obligations"
     ],
-    "excludes": [
-      "Explicit sourcing restrictions with certification and audit rights"
-    ],
-    "required_qualifiers": ["objects", "qualifiers", "modality"]
+    "required_qualifiers": [
+      "objects",
+      "qualifiers",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_CHANGE_OF_CONTROL_SILENT",
     "definition": "Contract lacks protections if a change of control creates FEOC exposure.",
+    "excludes": [
+      "Notice and consent requirements with FEOC-specific remedies"
+    ],
     "includes": [
       "No change-of-control notice",
       "No consent or termination right tied to FEOC risk",
       "No post-change compliance obligation"
     ],
-    "excludes": [
-      "Notice and consent requirements with FEOC-specific remedies"
-    ],
-    "required_qualifiers": ["actors", "qualifiers", "modality"]
+    "required_qualifiers": [
+      "actors",
+      "qualifiers",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_REPRESENTATION_MISSING",
     "definition": "Missing or insufficient representations regarding FEOC status or compliance.",
+    "excludes": [
+      "Clear representations with ongoing covenants and update duties"
+    ],
     "includes": [
       "Silence on FEOC or PFE status",
       "No ongoing compliance certification"
     ],
-    "excludes": [
-      "Clear representations with ongoing covenants and update duties"
-    ],
-    "required_qualifiers": ["polarity", "qualifiers", "confidence"]
+    "required_qualifiers": [
+      "polarity",
+      "qualifiers",
+      "confidence"
+    ]
   },
   {
     "concept_id": "FEOC_INDEMNITY_EXCLUDED",
     "definition": "Indemnity or liability protections do not cover FEOC-related losses or credit disqualification.",
+    "excludes": [
+      "Explicit indemnity covering FEOC compliance breaches and credit loss"
+    ],
     "includes": [
       "Indemnity carve-outs for credit loss",
       "Liability caps that negate FEOC remedies"
     ],
-    "excludes": [
-      "Explicit indemnity covering FEOC compliance breaches and credit loss"
-    ],
-    "required_qualifiers": ["objects", "qualifiers", "modality"]
+    "required_qualifiers": [
+      "objects",
+      "qualifiers",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_TERMINATION_MISSING",
     "definition": "No effective termination or step-out right tied to FEOC risk.",
+    "excludes": [
+      "Express termination or step-in rights on FEOC trigger"
+    ],
     "includes": [
       "No termination for compliance failure",
       "High penalties preventing exit on FEOC trigger"
     ],
-    "excludes": [
-      "Express termination or step-in rights on FEOC trigger"
-    ],
-    "required_qualifiers": ["actors", "qualifiers", "modality"]
+    "required_qualifiers": [
+      "actors",
+      "qualifiers",
+      "modality"
+    ]
   },
   {
     "concept_id": "FEOC_CURABLE_BREACH",
     "definition": "FEOC-related breaches are treated as curable in a way that delays or weakens compliance.",
+    "excludes": [
+      "Immediate default or hard-stop remedies for FEOC triggers"
+    ],
     "includes": [
       "Long cure periods for FEOC issues",
       "Soft standards such as commercially reasonable efforts"
     ],
-    "excludes": [
-      "Immediate default or hard-stop remedies for FEOC triggers"
-    ],
-    "required_qualifiers": ["qualifiers", "modality"]
+    "required_qualifiers": [
+      "qualifiers",
+      "modality"
+    ]
   }
 ]
-
