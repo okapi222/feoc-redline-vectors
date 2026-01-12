@@ -34,10 +34,20 @@
       "name": "feoc_analysis_output_schema.v1.0.json",
       "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/feoc_analysis_output_schema.v1.0.json",
       "role": "Describes expected analysis output"
+    },
+    {
+      "name": "normalization/feoc_concept_taxonomy.v1.0.json",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/normalization/feoc_concept_taxonomy.v1.0.json",
+      "role": "Frozen concept taxonomy (concept_id list) used for semantic normalization and mapping across control/consequence vectors"
+    },
+    {
+      "name": "normalization/feoc_normalization_output_schema.v1.0.json",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/normalization/feoc_normalization_output_schema.v1.0.json",
+      "role": "Schema for the normalization layer output (normalized concepts + evidence mapping) consumed by downstream analysis"
     }
   ],
   "frozen": true,
-  "notes": "This manifest is the single authoritative entry point for all frozen v1.0 FEOC inputs. All analysis must reference only the files listed here.",
+  "notes": "This manifest is the single authoritative entry point for all frozen v1.0 FEOC inputs.\nAll analysis must reference only the files listed here.",
   "repo": "https://github.com/okapi222/feoc-redline-vectors",
   "version": "v1.0"
 }
