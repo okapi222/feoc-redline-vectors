@@ -57,7 +57,7 @@
     }
   ],
   "frozen": true,
-  "notes": "v1.0.1 updates normalization inputs: concept definitions are separated from the normalization output schema to prevent schema/ontology confusion. All analysis must reference only the files listed here.",
+  "notes": "v1.0.1 introduces semantic normalization inputs. Control and consequence logic remain pinned to v1.0.",
   "repo": "https://github.com/okapi222/feoc-redline-vectors",
   "version": "v1.0.1"
 }
