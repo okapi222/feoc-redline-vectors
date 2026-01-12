@@ -1,6 +1,6 @@
 [
   {
-    "concept_id": "FEOC_ENTITY_STATUS",
+    "concept_id": "FEOC_ENTITY_STATUS_",
     "definition": "A relevant party is or could be a prohibited foreign entity due to ownership, control, organization, or jurisdiction.",
     "includes": [
       "Non-U.S. entity with unclear ownership or control",
