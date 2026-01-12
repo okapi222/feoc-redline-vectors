@@ -49,6 +49,11 @@
       "name": "normalization/feoc_normalization_output_schema.v1.0.1.json",
       "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0.1/normalization/feoc_normalization_output_schema.v1.0.1.json",
       "role": "JSON Schema for normalization layer output (clause_spans + normalized + evidence_map + model_metadata)"
+    },
+    {
+      "name": "evaluation/feoc_control_evaluator_spec.v1.0.1.json",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.1/evaluation/feoc_control_evaluator_spec.v1.0.1.json",
+      "role": "Deterministic evaluator spec: converts normalization (concept hits) into control hits"
     }
   ],
   "frozen": true,

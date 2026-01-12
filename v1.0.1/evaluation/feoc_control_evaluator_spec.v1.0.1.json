@@ -1,0 +1,108 @@
+{
+  "description": "Determines control hits from normalization output by concept_id (no text matching).",
+  "hit_rules": [
+    {
+      "rule_id": "HIT_IF_CONCEPT_ASSERTED",
+      "then": {
+        "evidence_source": "evidence_map",
+        "status": "HIT",
+        "use_best_assertion_fields": [
+          "confidence",
+          "polarity",
+          "modality",
+          "actors",
+          "objects",
+          "qualifiers"
+        ]
+      },
+      "when": {
+        "best_assertion_confidence_gte": "$.parameters.confidence_threshold",
+        "best_assertion_polarity_in": "$.parameters.accepted_polarity",
+        "concept_in_control_vectors": true,
+        "concept_in_evidence_map": true,
+        "evidence_clause_span_ids_min": 1
+      }
+    },
+    {
+      "rule_id": "REJECT_IF_MODALITY_UNKNOWN_WHEN_REQUIRED",
+      "then": {
+        "status": "NO_HIT"
+      },
+      "when": {
+        "best_assertion_modality_in": "$.parameters.rejected_modality",
+        "concept_requires": [
+          "modality"
+        ]
+      }
+    },
+    {
+      "rule_id": "REJECT_IF_MISSING_REQUIRED_QUALIFIERS",
+      "then": {
+        "status": "NO_HIT"
+      },
+      "when": {
+        "enforce": "$.parameters.fail_closed_on_missing_required_qualifiers",
+        "missing_any_required_qualifiers": true
+      }
+    }
+  ],
+  "inputs": {
+    "concept_definitions": {
+      "expects_fields": [
+        "concept_id",
+        "required_qualifiers"
+      ]
+    },
+    "control_vectors": {
+      "expects_fields": [
+        "control_id"
+      ]
+    },
+    "normalization_object": {
+      "expects_fields": [
+        "clause_spans",
+        "normalized",
+        "evidence_map",
+        "model_metadata"
+      ]
+    }
+  },
+  "kind": "deterministic_transform_spec",
+  "name": "feoc_control_evaluator_spec",
+  "output": {
+    "control_hits": [
+      {
+        "control_id": "string",
+        "evidence_clause_span_ids": [
+          "string"
+        ],
+        "normalization": {
+          "actors": [
+            "string"
+          ],
+          "confidence": "number",
+          "modality": "string",
+          "objects": [
+            "string"
+          ],
+          "polarity": "string",
+          "qualifiers": [
+            "string"
+          ]
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "accepted_polarity": [
+      "AFFIRMED"
+    ],
+    "confidence_threshold": 0.75,
+    "fail_closed_on_missing_required_qualifiers": true,
+    "rejected_modality": [
+      "UNKNOWN"
+    ],
+    "require_evidence": true
+  },
+  "version": "v1.1"
+}
