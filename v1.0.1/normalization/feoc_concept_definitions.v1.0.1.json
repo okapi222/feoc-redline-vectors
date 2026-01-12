@@ -7,7 +7,7 @@
       "Clear ownership and control disclosures with no covered-nation indicators"
     ],
     "includes": [
-      "Non-U.S.\\nentity with unclear ownership or control",
+      "Non-U.S. entity with unclear ownership or control",
       "Affiliate or subcontractor with potential covered-nation control",
       "Silence on ownership, control, or jurisdiction"
     ],
