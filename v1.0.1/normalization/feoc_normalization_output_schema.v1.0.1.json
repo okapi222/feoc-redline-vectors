@@ -1,0 +1,185 @@
+{
+  "$defs": {
+    "clause_span": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "start",
+        "end",
+        "text"
+      ],
+      "type": "object"
+    },
+    "evidence_item": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_span_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "concept_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "concept_id",
+        "clause_span_ids"
+      ],
+      "type": "object"
+    },
+    "model_metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prompt_hash": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "version",
+        "prompt_hash"
+      ],
+      "type": "object"
+    },
+    "normalized_item": {
+      "additionalProperties": false,
+      "properties": {
+        "actors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "concept_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "modality": {
+          "enum": [
+            "SHALL",
+            "MUST",
+            "MAY",
+            "SHOULD",
+            "REPRESENTS",
+            "WARRANTS",
+            "SILENT",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "objects": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "polarity": {
+          "enum": [
+            "AFFIRMED",
+            "NEGATED",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "qualifiers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "concept_id",
+        "label",
+        "polarity",
+        "modality",
+        "actors",
+        "objects",
+        "qualifiers",
+        "confidence"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0.1/normalization/feoc_normalization_output_schema.v1.0.1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clause_spans": {
+      "items": {
+        "$ref": "#/$defs/clause_span"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "evidence_map": {
+      "items": {
+        "$ref": "#/$defs/evidence_item"
+      },
+      "type": "array"
+    },
+    "model_metadata": {
+      "$ref": "#/$defs/model_metadata"
+    },
+    "normalized": {
+      "items": {
+        "$ref": "#/$defs/normalized_item"
+      },
+      "type": "array"
+    },
+    "version": {
+      "const": "v1.0.1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "clause_spans",
+    "normalized",
+    "evidence_map",
+    "model_metadata"
+  ],
+  "title": "FEOC Normalization Output Schema v1.0.1",
+  "type": "object"
+}
