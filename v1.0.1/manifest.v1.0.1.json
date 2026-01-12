@@ -57,7 +57,7 @@
     }
   ],
   "frozen": true,
-  "notes": "v1.0.1 introduces semantic normalization inputs. Control and consequence logic remain pinned to v1.0.",
+  "notes": "",
   "repo": "https://github.com/okapi222/feoc-redline-vectors",
   "version": "v1.0.1"
 }
