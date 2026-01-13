@@ -54,6 +54,11 @@
       "name": "evaluation/feoc_control_evaluator_spec.v1.0.1.json",
       "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0.1/evaluation/feoc_control_evaluator_spec.v1.0.1.json",
       "role": "Deterministic evaluator spec: converts normalization (concept hits) into control hits"
+    },
+    {
+      "name": "normalization/feoc_concept_display_text.v1.0.1.json",
+      "raw_url": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0.1/normalization/feoc_concept_display_text.v1.0.1.json",
+      "role": "Static UI/display text for each FEOC normalization concept (plain-English explanations, impact, and user guidance)"
     }
   ],
   "frozen": true,
