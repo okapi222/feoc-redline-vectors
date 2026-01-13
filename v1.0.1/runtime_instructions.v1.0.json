@@ -1,0 +1,37 @@
+{
+  "analysis_mode": "demo",
+  "evaluation": {
+    "fail_fast_on_schema_error": true,
+    "use_deterministic_evaluator": true
+  },
+  "explanations": {
+    "constraints": [
+      "Do not quote statute verbatim",
+      "Do not give legal advice",
+      "Explain risk in 2-3 sentences"
+    ],
+    "style": "plain_english"
+  },
+  "normalization": {
+    "instructions": "Normalize each text chunk into FEOC-relevant concepts using the taxonomy. Do not infer facts not stated in the text. If ownership, control, or sourcing is ambiguous, mark polarity as uncertain.",
+    "model_behavior": {
+      "confidence_threshold": 0.55,
+      "max_concepts_per_chunk": 6,
+      "temperature": 0
+    }
+  },
+  "refresh_policy": "always",
+  "remediation": {
+    "constraints": [
+      "Do not generate full replacement clauses",
+      "Use bullet points",
+      "Frame suggestions as options, not requirements"
+    ],
+    "mode": "guidance_only"
+  },
+  "ui_copy": {
+    "disclaimer": "This is an automated review for demonstration purposes only and does not constitute legal advice.",
+    "no_risk_message": "No FEOC-related risks were identified in this document based on automated analysis."
+  },
+  "version": "v1.0.1"
+}
