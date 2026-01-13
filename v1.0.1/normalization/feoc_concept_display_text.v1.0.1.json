@@ -1,67 +1,132 @@
 {
   "concept_display": {
     "FEOC_AUDIT_RIGHTS_MISSING": {
-      "plain_english": "The agreement lacks sufficient audit/inspection rights to confirm FEOC-related compliance (entities, sourcing, and records).",
+      "plain_english": "The agreement lacks audit or inspection rights to verify FEOC compliance.",
       "short_label": "Audit Rights Missing",
-      "user_action_hint": "Add audit rights, document retention, cooperation obligations, and access to subcontractor/supplier records.",
-      "why_it_matters": "Without audit rights, you cannot prove compliance during diligence, financing, or IRS substantiation."
+      "user_action_hint": "Add audit rights, document retention, and subcontractor flow-downs.",
+      "why_it_matters": "You may be unable to prove compliance during diligence or substantiation."
     },
     "FEOC_CHANGE_OF_CONTROL_SILENT": {
-      "plain_english": "The agreement does not address what happens if a party undergoes a change of control that creates FEOC exposure.",
-      "short_label": "Change of Control Silent",
-      "user_action_hint": "Add change-of-control notice, consent rights, and termination/remediation rights tied to FEOC exposure.",
-      "why_it_matters": "A future acquisition or ownership change can create sudden disqualification risk without contractual remedies."
+      "plain_english": "The contract does not address FEOC exposure created by future ownership changes.",
+      "short_label": "Change of Control Gap",
+      "user_action_hint": "Add notice, consent, and termination rights tied to FEOC exposure.",
+      "why_it_matters": "A compliant deal can become noncompliant overnight after an acquisition."
     },
     "FEOC_CURABLE_BREACH": {
-      "plain_english": "FEOC-related violations are treated as curable (or not treated as material), limiting immediate remedies.",
+      "plain_english": "FEOC violations are treated as minor or easily curable.",
       "short_label": "Only Curable Breach",
-      "user_action_hint": "Make FEOC exposure an immediate material breach with fast cure deadlines (or no-cure) and interim mitigation obligations.",
-      "why_it_matters": "Some FEOC issues must be treated as immediate stop-the-bleed events to protect eligibility timelines."
+      "user_action_hint": "Make FEOC exposure a material breach with fast or no-cure treatment.",
+      "why_it_matters": "Some FEOC issues require immediate remediation to preserve eligibility."
     },
     "FEOC_ENTITY_STATUS": {
-      "plain_english": "This clause indicates a party (or relevant affiliate) may qualify as a Foreign Entity of Concern (FEOC) or is not clearly excluded from being one.",
+      "plain_english": "A party or relevant affiliate may qualify as a Foreign Entity of Concern or is not clearly excluded from being one.",
       "short_label": "FEOC Entity Status",
-      "user_action_hint": "Add an explicit non-FEOC representation covering affiliates and control, plus an ongoing update obligation.",
-      "why_it_matters": "FEOC involvement can disqualify tax credits and trigger deal, compliance, and financing risks."
+      "user_action_hint": "Add explicit non-FEOC representations covering affiliates and control, plus ongoing compliance certifications.",
+      "why_it_matters": "FEOC involvement can disqualify tax credits and block financing or credit transfers."
     },
     "FEOC_INDEMNITY_EXCLUDED": {
-      "plain_english": "The contract excludes or weakens indemnities for FEOC-related breaches, disqualification, or compliance failures.",
-      "short_label": "Indemnity Excluded",
-      "user_action_hint": "Include indemnities for FEOC-related noncompliance, including third-party claims, recapture exposure, and remediation costs.",
-      "why_it_matters": "If credits are lost or recaptured, the economic harm can be large and otherwise unrecoverable."
+      "plain_english": "The agreement limits or excludes indemnification for FEOC-related losses.",
+      "short_label": "FEOC Indemnity Gap",
+      "user_action_hint": "Add targeted FEOC indemnities and carve-outs from liability caps.",
+      "why_it_matters": "Credit denial or recapture can result in significant unrecoverable losses."
     },
     "FEOC_MATERIAL_ASSISTANCE": {
-      "plain_english": "This clause permits or fails to restrict material assistance from an FEOC across services, components, or support.",
+      "plain_english": "The contract allows or does not restrict material assistance from a Foreign Entity of Concern.",
       "short_label": "FEOC Material Assistance",
-      "user_action_hint": "Add a prohibition on FEOC material assistance and require sourcing disclosures and certifications.",
-      "why_it_matters": "Material assistance from an FEOC can be a gating issue for credit eligibility and diligence sign-off."
+      "user_action_hint": "Prohibit FEOC material assistance and require sourcing disclosures and certifications.",
+      "why_it_matters": "Material assistance from an FEOC can independently disqualify eligibility."
     },
     "FEOC_OM_PROVIDER": {
-      "plain_english": "This clause allows the O&M provider (or subcontractors) to be FEOC-linked, or does not restrict FEOC-linked performance.",
+      "plain_english": "Operations or maintenance services may be performed by an FEOC-linked provider or subcontractor.",
       "short_label": "O&M Provider FEOC Risk",
-      "user_action_hint": "Restrict FEOC-linked providers/subcontractors and require consent and pre-approval for substitutions.",
-      "why_it_matters": "A FEOC-linked service provider can create eligibility risk and operational disruption if remediation is required later."
+      "user_action_hint": "Restrict FEOC-linked providers and require approval and substitution rights.",
+      "why_it_matters": "Service-provider FEOC exposure is difficult to unwind after closing."
     },
     "FEOC_REPRESENTATION_MISSING": {
-      "plain_english": "The agreement does not contain clear representations and warranties that the relevant parties are not FEOCs and will remain compliant.",
-      "short_label": "Representation Missing",
-      "user_action_hint": "Add reps/warranties on FEOC status, affiliates, control, sourcing, and ongoing compliance certifications.",
-      "why_it_matters": "Absent representations, you lack a clean contractual basis for diligence reliance and enforcement."
+      "plain_english": "The contract lacks clear representations regarding FEOC status.",
+      "short_label": "Missing FEOC Representation",
+      "user_action_hint": "Add reps covering FEOC status, affiliates, control, and sourcing.",
+      "why_it_matters": "Without reps, you lack enforceable compliance assurances."
     },
     "FEOC_SUPPLY_CHAIN_CONTENT": {
-      "plain_english": "This clause allows the supplier/service chain to include FEOC-linked content, parts, or inputs without disclosure or limits.",
-      "short_label": "Supply Chain Content Risk",
-      "user_action_hint": "Require supply chain disclosures, FEOC-free sourcing commitments, and notification of any changes.",
-      "why_it_matters": "Supply chain content is a common failure point for eligibility and can force costly re-procurement."
+      "plain_english": "Supply chain inputs may include FEOC-linked components or services.",
+      "short_label": "Supply Chain FEOC Content",
+      "user_action_hint": "Require FEOC-free sourcing commitments and upstream disclosure obligations.",
+      "why_it_matters": "Supply chain sourcing is a common failure point in eligibility diligence."
     },
     "FEOC_TERMINATION_MISSING": {
-      "plain_english": "The agreement lacks a clear termination right if FEOC exposure is identified or compliance becomes impossible.",
+      "plain_english": "The contract lacks termination or exit rights for FEOC exposure.",
       "short_label": "Termination Right Missing",
-      "user_action_hint": "Add termination for FEOC exposure, plus step-in/substitution rights and transition cooperation.",
-      "why_it_matters": "Without termination/remedy rights, you may be locked into a noncompliant arrangement that threatens eligibility."
+      "user_action_hint": "Add termination and transition rights triggered by FEOC exposure.",
+      "why_it_matters": "You may be locked into a noncompliant arrangement."
     }
   },
+  "consequence_output_class_display": {
+    "CREDIT_AT_RISK": {
+      "plain_english": "This issue creates a meaningful risk to credit eligibility.",
+      "short_label": "Credit at Risk",
+      "user_action_hint": "Tighten sourcing controls and require supporting certifications.",
+      "why_it_matters": "Diligence or substantiation may fail without remediation."
+    },
+    "CREDIT_DISQUALIFICATION": {
+      "plain_english": "This issue can disqualify the project from the relevant tax credit.",
+      "short_label": "Credit Disqualification",
+      "user_action_hint": "Treat as a hard stop. Remove FEOC involvement and escalate immediately.",
+      "why_it_matters": "Eligibility may be denied or credits may be subject to recapture."
+    },
+    "ECONOMIC_LOSS": {
+      "plain_english": "FEOC exposure may result in unrecoverable financial losses.",
+      "short_label": "Economic Loss Risk",
+      "user_action_hint": "Strengthen indemnities and liability carve-outs.",
+      "why_it_matters": "Weak allocation of risk magnifies downside."
+    },
+    "FALSE_COMPLIANCE": {
+      "plain_english": "The contract appears compliant but allows FEOC workarounds.",
+      "short_label": "False Compliance Risk",
+      "user_action_hint": "Make FEOC exposure a material, fast-action breach.",
+      "why_it_matters": "Soft enforcement undermines real eligibility."
+    },
+    "FUTURE_EXPOSURE": {
+      "plain_english": "FEOC risk may arise later due to changes in control or vendors.",
+      "short_label": "Future Exposure",
+      "user_action_hint": "Add change-of-control and assignment protections.",
+      "why_it_matters": "Future changes can silently break eligibility."
+    },
+    "LOCKED_IN_RISK": {
+      "plain_english": "You may be stuck in a noncompliant arrangement.",
+      "short_label": "Locked-In Risk",
+      "user_action_hint": "Add termination and step-in rights.",
+      "why_it_matters": "Delayed exits can destroy eligibility timelines."
+    },
+    "PROOF_FAILURE": {
+      "plain_english": "You may be unable to prove FEOC compliance.",
+      "short_label": "Proof Failure",
+      "user_action_hint": "Add audit rights and document access obligations.",
+      "why_it_matters": "Inability to prove compliance can block transactions."
+    },
+    "REMEDY_GAP": {
+      "plain_english": "The contract lacks enforceable FEOC remedies.",
+      "short_label": "Remedy Gap",
+      "user_action_hint": "Add reps, covenants, termination, and indemnities.",
+      "why_it_matters": "You may be unable to fix or exit noncompliance."
+    },
+    "STRUCTURAL_RISK": {
+      "plain_english": "The project structure embeds potential FEOC exposure.",
+      "short_label": "Structural Risk",
+      "user_action_hint": "Restrict FEOC-linked parties and add substitution rights.",
+      "why_it_matters": "Structural exposure is difficult to unwind post-closing."
+    }
+  },
+  "frozen": true,
+  "notes": [
+    "Pure UI/output copy layer. No logic.",
+    "Referenced by concept_id and by consequence output_class at render time only.",
+    "Safe to edit copy without affecting analysis."
+  ],
   "source_manifest": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0.1/manifest.v1.0.1.json",
-  "source_taxonomy": "https://raw.githubusercontent.com/okapi222/feoc-redline-vectors/refs/heads/main/v1.0/normalization/feoc_concept_taxonomy.v1.0.json",
+  "sources": {
+    "concept_taxonomy": "normalization/feoc_concept_taxonomy.v1.0.json",
+    "consequence_map": "feoc_consequence_map.v1.0.json"
+  },
   "version": "v1.0.1"
 }
